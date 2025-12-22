@@ -1,5 +1,6 @@
 import Ari from "../assets/Images/Ari.png";
 import { motion } from "framer-motion";
+import { FiArrowDown } from "react-icons/fi";
 
 function LandingPage() {
   return (
@@ -12,23 +13,27 @@ function LandingPage() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <motion.h1
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          delay: 0.6,
-          ease: "easeOut",
-        }}
-        className="
-          rubik-h1 text-white
-          text-[48px] sm:text-[72px] md:text-[96px] lg:text-[128px]
-          absolute bottom-6 left-6
-          leading-none tracking-tight
-        "
+
+      {/* SCROLL HINT */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/80"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
       >
-        Hiwa Fareeq
-      </motion.h1>
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="flex flex-col items-center gap-2 text-sm tracking-wide"
+        >
+          <span className="rubik-h2 text-[large]">Scroll to explore</span>
+          <FiArrowDown className="text-lg" />
+        </motion.span>
+      </motion.div>
     </section>
   );
 }

@@ -33,7 +33,7 @@ function ProjectsSlider() {
   }, [index]);
 
   return (
-    <section className="h-[55vh] w-screen relative overflow-hidden">
+    <section className="h-[65vh] w-screen relative overflow-hidden">
   {/* 🌊 STATIC ANIMATED BACKGROUND */}
   <div className="absolute inset-0 animated-gradient" />
 

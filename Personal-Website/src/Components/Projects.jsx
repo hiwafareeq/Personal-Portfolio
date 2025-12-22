@@ -11,7 +11,7 @@ function Projects({ title, points, name }) {
       </h1>
 
       {/* RIGHT COLUMN */}
-      <div className="flex flex-col justify-around h-[50vh]">
+      <div className="flex flex-col justify-around h-[65vh]">
 
         <span className="flex flex-col relative pl-6">
           <VerticalLine />

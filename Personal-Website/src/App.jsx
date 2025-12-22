@@ -7,6 +7,7 @@ import AboutPage from "./Pages/AboutPage.jsx";
 import ProjectsSlider from "./Pages/ProjectsSlider.jsx";
 import ToolsMarquee from "./Pages/ToolsMarquee.jsx";
 import ExperiencesSlider from "./Pages/ExperiencesSlider.jsx";
+import Footer from "./Components/Footer.jsx";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
@@ -69,6 +70,7 @@ function App() {
       <ProjectsSlider />
       <ToolsMarquee />
       <ExperiencesSlider />
+      <Footer />
     </>
   );
 }

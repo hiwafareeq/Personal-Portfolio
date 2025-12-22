@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiArrowDown, FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import Experience from "../Components/Experience.jsx";
 import { experiencesData } from "../Components/experiencesData.js";
@@ -7,71 +7,59 @@ import { experiencesData } from "../Components/experiencesData.js";
 function ExperiencesSlider() {
   const trackRef = useRef(null);
   const containerRef = useRef(null);
+  const slideRef = useRef(null);
 
-  const slidesCount = experiencesData.length;
   const [dragLimit, setDragLimit] = useState(0);
 
-  /* ----------------------------------
-     CALCULATE DRAG LIMIT SAFELY
-  ---------------------------------- */
   useEffect(() => {
     const calculateLimit = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !slideRef.current) return;
 
       const containerWidth = containerRef.current.offsetWidth;
-      const visibleWidth = containerWidth; // 100vw
-      const totalWidth = containerWidth * (slidesCount / 2); // each slide = 50vw
+      const slideWidth = slideRef.current.offsetWidth;
+      const totalWidth = slideWidth * experiencesData.length;
 
-      setDragLimit(Math.max(totalWidth - visibleWidth, 0));
+      setDragLimit(Math.max(totalWidth - containerWidth, 0));
     };
 
     calculateLimit();
     window.addEventListener("resize", calculateLimit);
     return () => window.removeEventListener("resize", calculateLimit);
-  }, [slidesCount]);
+  }, []);
 
   return (
-    <section className="w-screen my-24">
-      
-      {/* SECTION TITLE */}
-<h1 className="rubik-h1 text-3xl md:text-4xl text-center">
-  Places I Worked
-</h1>
-<motion.p
-  className="rubik-ps text-center text-slate-500 mb-8 mt-3 flex items-center justify-center gap-2"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.3 }}
->
-  <FiArrowLeft />
-  Drag to See
-  <FiArrowRight />
-</motion.p>
+    <section className="w-screen my-16 md:my-24">
+      {/* TITLE */}
+      <h1 className="rubik-h1 text-2xl sm:text-3xl md:text-4xl text-center">
+        Places I Worked
+      </h1>
+
+      <p className="rubik-ps text-center text-slate-500 mt-2 mb-6 flex items-center justify-center gap-2 text-sm sm:text-base">
+        <FiArrowLeft />
+        Drag to See
+        <FiArrowRight />
+      </p>
+
       {/* SLIDER */}
       <div
         ref={containerRef}
-        className="w-screen h-[50vh] overflow-hidden"
+        className="w-screen h-[65vh] sm:h-[55vh] overflow-hidden"
       >
         <motion.div
           ref={trackRef}
           drag="x"
           dragElastic={0.08}
-          dragMomentum={true}
+          dragMomentum
           dragConstraints={{ left: -dragLimit, right: 0 }}
-          className="
-            flex h-full
-            cursor-grab active:cursor-grabbing
-            select-none
-          "
-          style={{
-            width: `${slidesCount * 50}vw`,
-          }}
+          className="flex h-full cursor-grab active:cursor-grabbing select-none"
         >
           {experiencesData.map((exp, i) => (
             <div
               key={i}
+              ref={i === 0 ? slideRef : null}
               className="
-                w-[50vw] h-full flex-shrink-0
+                w-screen md:w-[50vw]
+                h-full flex-shrink-0
                 border-r border-slate-300/60
               "
             >

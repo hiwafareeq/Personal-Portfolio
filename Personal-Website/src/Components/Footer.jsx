@@ -70,11 +70,11 @@ function Footer() {
             <a href="#about" className="text-white/80 hover:text-white">
               About
             </a>
-            <a href="#skills" className="text-white/80 hover:text-white">
-              Skills
+            <a href="#projects" className="text-white/80 hover:text-white">
+              Projects
             </a>
-            <a href="#journey" className="text-white/80 hover:text-white">
-              Journey
+            <a href="#expertise" className="text-white/80 hover:text-white">
+              Expertise
             </a>
           </div>
 
@@ -83,7 +83,7 @@ function Footer() {
             <h3 className="font-semibold text-lg">Socials</h3>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/hiwa-fareeq-msalih-hassan/"
               target="_blank"
               className="flex items-center gap-2 text-white/80 hover:text-white"
             >
@@ -91,7 +91,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/aryfareq"
               target="_blank"
               className="flex items-center gap-2 text-white/80 hover:text-white"
             >
@@ -99,7 +99,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ari_fareiq/"
               target="_blank"
               className="flex items-center gap-2 text-white/80 hover:text-white"
             >

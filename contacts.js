@@ -1,9 +1,26 @@
-import express from "express";
 import nodemailer from "nodemailer";
 
-const router = express.Router();
+const RATE_LIMIT = new Map(); // simple in-memory limit
 
-router.post("/contact", async (req, res) => {
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const ip = req.headers["x-forwarded-for"] || "unknown";
+  const now = Date.now();
+
+  const entry = RATE_LIMIT.get(ip) || { count: 0, time: now };
+
+  if (now - entry.time < 60 * 60 * 1000 && entry.count >= 3) {
+    return res.status(429).json({ error: "LIMIT_REACHED" });
+  }
+
+  RATE_LIMIT.set(ip, {
+    count: now - entry.time > 60 * 60 * 1000 ? 1 : entry.count + 1,
+    time: entry.time,
+  });
+
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -32,11 +49,9 @@ router.post("/contact", async (req, res) => {
       `,
     });
 
-    res.json({ success: true });
+    return res.status(200).json({ success: true });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Email failed" });
+    return res.status(500).json({ error: "Email failed" });
   }
-});
-
-export default router;
+}

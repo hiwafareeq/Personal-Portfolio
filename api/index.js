@@ -57,7 +57,7 @@ app.post('/api/contact', async (req, res) => {
       from: `"Contact Form" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
-      subject: `📩 New Contact: ${name}`,
+      subject: `📩 Mail From Portfolio: ${name}`,
       text: `Message from ${name} (${email}):\n\n${message}`, // Plain text fallback
       html: generateEmailTemplate(name, email, message), // The high-quality HTML version
     });

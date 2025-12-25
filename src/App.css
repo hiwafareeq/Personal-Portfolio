@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-*{
+* {
   scrollbar-width: none;
 }
-body{
+body {
   background-color: #ffffff;
   scroll-behavior: smooth;
 }
@@ -11,9 +11,9 @@ body{
 .animated-gradient {
   background: linear-gradient(
     120deg,
-    #1a314a 0%,    /* dark blue */
-    #0f2233 50%,   /* deeper blue (near-black but not black) */
-    #3a6ea5 100%   /* blue */
+    #1a314a 0%,
+    /* dark blue */ #0f2233 50%,
+    /* deeper blue (near-black but not black) */ #3a6ea5 100% /* blue */
   );
   background-size: 300% 100%;
   animation: gradientMove 14s linear infinite;
@@ -55,26 +55,26 @@ body{
 /* moving container */
 .marquee-track {
   display: flex;
-  width: max-content;        /* 🔑 content defines width */
+  width: max-content; /* 🔑 content defines width */
 }
 
 /* duplicated groups */
 .marquee-content {
   display: flex;
   gap: 1rem;
-  flex-shrink: 0;            /* 🔑 never collapse */
+  flex-shrink: 0; /* 🔑 never collapse */
   margin: 0 0.5rem;
 }
 
 /* pills */
 .pill {
-  padding:0 2rem;
+  padding: 0 2rem;
   border-radius: 9999px;
   background: transparent;
   backdrop-filter: blur(6px);
-  color: #1A314A;
+  color: #1a314a;
   white-space: nowrap;
-  border: 3px solid #1A314A;
+  border: 3px solid #1a314a;
   font-size: 2rem;
   font-weight: 600;
   font-family: "Rubik", sans-serif;
@@ -108,7 +108,7 @@ body{
 }
 
 /* this is for text */
-.rubik-h1{
+.rubik-h1 {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;

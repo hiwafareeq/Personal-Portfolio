@@ -3,7 +3,7 @@ export const projectsData = [
   {
     title: "My Capstone Project",
     name: "AUIS DORMY",
-    bg: "#0B132B",
+    bg: "#08111CFF",
     points: [
       "Solving a Problem With Digitalization",
       "Endorsed By The Department",
@@ -13,7 +13,7 @@ export const projectsData = [
   {
     title: "Environmental Platform",
     name: "Eco Iraq",
-    bg: "#1C2541",
+    bg: "#0B1A29FF",
     points: [
       "Environmental Awareness & Education",
       "Modern React & Tailwind Stack",
@@ -23,7 +23,7 @@ export const projectsData = [
   {
     title: "Fitness Club Website",
     name: "Forward Fitness",
-    bg: "#1e3c5eff",
+    bg: "#0F2237FF",
     points: [
       "Mobile-First Implementation",
       "Responsive & Accessible",
@@ -33,7 +33,7 @@ export const projectsData = [
   {
     title: "Java Messaging Program",
     name: "Distributed Computing",
-    bg: "#132b45ff", // dark blue
+    bg: "#132b45ff",
     points: [
       "Terminal Based Application",
       "Messaging Between Peers",

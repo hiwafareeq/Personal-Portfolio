@@ -11,7 +11,7 @@ export default function AlternatingScrollTimeline() {
         return (
           <div
             key={index}
-            className="min-h-screen flex items-center"
+            className="flex items-center h-[75vh]"
           >
             <div className="grid grid-cols-12 w-full px-6 md:px-20">
 

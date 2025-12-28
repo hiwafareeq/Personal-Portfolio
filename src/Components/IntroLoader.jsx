@@ -40,7 +40,7 @@ function IntroLoader() {
       initial="initial"
       animate="initial"
       exit="exit"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1E344C] text-white px-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0B1A29FF] text-white px-6"
     >
       <div className="flex flex-col items-center max-w-7xl w-full">
         <div className="overflow-hidden w-full">

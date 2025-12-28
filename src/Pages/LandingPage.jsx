@@ -9,27 +9,13 @@ function LandingPage() {
         bg-[url('/Ari.avif')]
         bg-cover bg-center bg-no-repeat
       "
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        duration: 0.8,
-        ease: "easeOut",
-      }}
     >
       {/* SCROLL HINT */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/80"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.6 }}
+
       >
         <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
           className="flex flex-col items-center gap-2 text-sm tracking-wide"
         >
           <span className="rubik-h2 text-[large]">Scroll to explore</span>

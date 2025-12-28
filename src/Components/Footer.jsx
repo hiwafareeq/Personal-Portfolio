@@ -78,7 +78,7 @@ function Footer() {
 
         {/* BOTTOM */}
         <div className="text-center mt-6 text-white/70 text-sm">
-          © {Year}. All Rights Reserved
+          © {Year}. Design & Implementation by Hiwa Fareeq.
         </div>
       </footer>
 

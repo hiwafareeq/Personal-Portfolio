@@ -3,19 +3,25 @@ import { FiArrowDown } from "react-icons/fi";
 
 function LandingPage() {
   return (
-    <section
+    <motion.section
       className="
         relative min-h-screen z-0
         bg-[url('/Ari.avif')]
         bg-cover bg-center bg-no-repeat
       "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+      }}
     >
       {/* SCROLL HINT */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/80"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
       >
         <motion.span
           animate={{ y: [0, 8, 0] }}
@@ -30,7 +36,7 @@ function LandingPage() {
           <FiArrowDown className="text-lg" />
         </motion.span>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
 

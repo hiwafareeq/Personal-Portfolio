@@ -56,7 +56,7 @@ function ExperiencesSlider() {
     <section id="expertise" className="w-screen my-16 md:my-24 overflow-hidden">
       {/* TITLE */}
       <h1 className="rubik-h1 text-2xl sm:text-3xl md:text-4xl text-center">
-        Places I Worked
+        Experiences
       </h1>
 
       {/* INTERACTION HINT */}
@@ -88,7 +88,7 @@ function ExperiencesSlider() {
               key={i}
               ref={i === 0 ? slideRef : null}
               className={`
-                w-screen md:w-[50vw]
+                w-screen md:w-[33.33vw]
                 h-full flex-shrink-0
                 border-r border-slate-300/60
                 ${!isMobile ? "snap-start" : ""} 

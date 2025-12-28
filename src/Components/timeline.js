@@ -23,13 +23,6 @@ const timelineData = [
       "Completed a 30-day intensive full-stack bootcamp covering frontend and backend web technologies, focusing on practical, project-based learning.",
   },
   {
-    year: "2024",
-    title: "Business & Entrepreneurship Participant",
-    organization: "TEIC Virtual Exchange Program",
-    body:
-      "Participated in a three-month virtual exchange focused on economics, entrepreneurship, and cross-cultural business practices.",
-  },
-  {
       year: "2025",
       title: "Delegate – Green Energy & Technology",
     organization: "AIBO-MOFCOM (China)",
@@ -43,13 +36,7 @@ const timelineData = [
     body:
     "Led IT systems and infrastructure, provided hands-on technical troubleshooting, and organized IT workshops and training sessions.",
 },
-{
-  year: "2025",
-  title: "Data Collection Assistant",
-  organization: "Mulk News Agency",
-  body:
-    "Collected and structured data from over 50 residential housing projects, ensuring accuracy and consistency for real estate analysis and market reporting.",
-},
+
 {
     year: "2025",
     title: "Frontend Developer (Contract)",

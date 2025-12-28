@@ -9,7 +9,7 @@ function Projects({ title, points, name }) {
         items-center md:items-center
         justify-center md:justify-around
         text-white
-        gap-8 md:gap-10
+        gap-4 md:gap-6
         h-full
         px-6 sm:px-10 md:px-16
       "
@@ -27,6 +27,13 @@ function Projects({ title, points, name }) {
       >
         {title}
       </h1>
+      <div className="mt-1 flex justify-center md:hidden">
+            <HorizontalLine
+              width={56}
+              height={3}
+              color="rgba(255,255,255,0.6)"
+            />
+          </div>
 
       {/* RIGHT COLUMN */}
       <div
@@ -50,8 +57,8 @@ function Projects({ title, points, name }) {
             <p
               key={i}
               className="
-                rubik-p
-                text-[0.7rem] sm:text-xs
+                rubik-ps
+                text-[1rem] sm:text-xs
                 md:text-base lg:text-lg
               "
             >

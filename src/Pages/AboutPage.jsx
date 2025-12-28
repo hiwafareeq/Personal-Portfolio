@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
+import VerticalLine from "../Components/VerticalLine";
 
 function AboutPage() {
   return (
@@ -21,6 +22,9 @@ function AboutPage() {
         {/* =========================
             MAIN STATEMENT
         ========================= */}
+                  <div className="hidden md:block">
+            <VerticalLine />
+          </div>
         <motion.h1
           variants={{
             hidden: { opacity: 0, y: 40 },
@@ -28,23 +32,31 @@ function AboutPage() {
           }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="
-            rubik-h1
-            text-[1.6rem]
-            sm:text-[1.8rem]
-            md:text-[2rem]
-            lg:text-[2.1rem]
-            text-[#1A314A]
-            leading-tight
-            max-w-[1000px]
+rubik-h1
+text-left
+sm:text-left
+md:text-center
+lg:text-center
+text-[1.1rem]
+sm:text-[1.1rem]
+md:text-[1.2rem]
+lg:text-[1.6rem]
+text-[#1A314A]
+leading-tight
+max-w-[1000px]
           "
         >
-          I’m Hiwa — a Full Stack Developer crafting fast, scalable, and immersive
-          digital experiences that merge creativity with engineering precision.
+          I’m Hiwa — a Full Stack Developer crafting scalable and immersive
+          digital experiences, merging creativity with engineering precision.
         </motion.h1>
 
         {/* =========================
             SUPPORTING PARAGRAPH
         ========================= */}
+          <div className="hidden md:block">
+            <VerticalLine />
+          </div>
+        
         <motion.p
           variants={{
             hidden: { opacity: 0, y: 40 },
@@ -52,15 +64,18 @@ function AboutPage() {
           }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="
-            rubik-ps
-            text-[#1A314A]
-            text-[0.95rem]
-            sm:text-[1rem]
-            max-w-[780px]
-            mt-10
-            sm:mt-14
-            md:mt-16
-            leading-relaxed
+rubik-ps
+text-[#1A314A]
+text-left
+text-[0.9rem]
+sm:text-[0.95rem]
+md:text-[1rem]
+max-w-[780px]
+mt-8
+sm:mt-12
+md:mt-14
+leading-relaxed
+
           "
         >
           I specialize in developing Websites and Web Applications, AI-driven

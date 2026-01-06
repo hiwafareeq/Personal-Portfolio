@@ -6,8 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Components/Navbar.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
-import ProjectsSlider from "./Pages/ProjectsSlider.jsx";
-import ToolsMarquee from "./Pages/ToolsMarquee.jsx";
+import ProjectsSlider from "./Pages/ProjectsSection.jsx";
 import ExperiencesSlider from "./Pages/ExperiencesSlider.jsx";
 import Footer from "./Components/Footer.jsx";
 import IntroLoader from "./Components/IntroLoader.jsx";
@@ -72,10 +71,7 @@ function App() {
       <AnimatePresence>
         {!showIntro && (
           <motion.div
-            key="main-content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+
           >
             <Navbar />
 
@@ -93,7 +89,6 @@ function App() {
             </section>
 
             <ProjectsSlider />
-            <ToolsMarquee />
             <ExperiencesSlider />
             <ScrollVerticalTimeline />
             <Footer />

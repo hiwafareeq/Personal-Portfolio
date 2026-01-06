@@ -40,36 +40,10 @@ function IntroLoader() {
       initial="initial"
       animate="initial"
       exit="exit"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0B1A29FF] text-white px-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white px-6"
     >
       <div className="flex flex-col items-center max-w-7xl w-full">
-        <div className="overflow-hidden w-full">
-          <motion.div
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            className="flex flex-col items-center text-center"
-          >
-            <h1 className="rubik-h1 text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
-              Patience is bitter, but its fruit is sweet.
-            </h1>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              className="w-full flex justify-center"
-            >
-              <p className="rubik-ps text-white/50 mt-6 flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-[10px] md:text-sm">
-                <span className="h-[1px] w-6 md:w-8 bg-white/20"></span>
-                Jean-Jacques Rousseau
-                <span className="h-[1px] w-6 md:w-8 bg-white/20"></span>
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* WAVE */}
+          {/* WAVE */}
         <div className="flex gap-3 h-16 mt-12 items-center justify-center">
           {[...Array(5)].map((_, i) => (
             <motion.div

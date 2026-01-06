@@ -16,7 +16,7 @@ function Footer() {
     <>
       <footer
         id="contact"
-        className="bg-[#0B1A29FF] text-white px-6 sm:px-10 lg:px-20 py-12 sm:py-16"
+        className="bg-black text-white px-6 sm:px-10 lg:px-20 py-12 sm:py-16"
       >
         {/* TOP SECTION */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16">
@@ -37,10 +37,12 @@ function Footer() {
               <button
                 onClick={() => setEmailOpen(true)}
                 className="
-                  bg-white text-[#1E344C]
-                  px-6 py-3 rounded-full
+                  bg-black text-white
+                  border border-white/80
+                  px-6 py-3
                   font-semibold
                   hover:bg-white/90
+                  hover:text-black
                   transition
                 "
               >

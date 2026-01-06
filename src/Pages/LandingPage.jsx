@@ -1,28 +1,56 @@
-import { motion } from "framer-motion";
 import { FiArrowDown } from "react-icons/fi";
 
 function LandingPage() {
   return (
-    <motion.section
+    <section
       className="
-        relative min-h-screen z-0
-        bg-[url('/Ari.avif')]
-        bg-cover bg-center bg-no-repeat
+        relative min-h-screen
+        bg-[url('./Ari2.png')]
+        bg-no-repeat
+        bg-cover
+        bg-left
+        bg-black
+        text-white  
       "
     >
-      {/* SCROLL HINT */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/80"
-
+      {/* CONTENT WRAPPER */}
+      <div
+        className="
+          relative z-10
+          min-h-screen
+          px-8 sm:px-12 lg:px-20
+          py-16
+          flex flex-col
+        "
       >
-        <motion.span
-          className="flex flex-col items-center gap-2 text-sm tracking-wide"
-        >
-          <span className="rubik-h2 text-[large]">Scroll to explore</span>
-          <FiArrowDown className="text-lg" />
-        </motion.span>
-      </motion.div>
-    </motion.section>
+        {/* PUSH BOTTOM CONTENT DOWN */}
+        <div className="flex-1" />
+
+        {/* BOTTOM-LEFT CTA */}
+        <div>
+          <button
+            className="
+              border border-white/70
+              px-6 py-3
+              text-2xl tracking-wide
+              hover:bg-white hover:text-black
+              transition
+            "
+          >
+            Get in touch
+          </button>
+
+          <p className="mt-4 text-xs text-white/70 tracking-widest uppercase">
+            Web Developer · Software Engineer · UX/UI Designer
+          </p>
+        </div>
+
+        {/* SCROLL HINT */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60">
+          <FiArrowDown size={20} />
+        </div>
+      </div>
+    </section>
   );
 }
 

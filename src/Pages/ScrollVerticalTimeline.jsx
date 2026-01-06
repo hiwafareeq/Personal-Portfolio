@@ -1,67 +1,84 @@
-import { motion } from "framer-motion";
 import timelineData from "../Components/timeline.js";
 
-export default function AlternatingScrollTimeline() {
+/* =========================
+   GROUP BY YEAR
+========================= */
+const groupedByYear = timelineData.reduce((acc, item) => {
+  acc[item.year] = acc[item.year] || [];
+  acc[item.year].push(item);
+  return acc;
+}, {});
+
+const years = Object.keys(groupedByYear).sort();
+
+/* =========================
+   COMPONENT
+========================= */
+export default function ScrollVerticalTimeline() {
   return (
-    <section className="bg-[#0B1A29FF] text-white">
-      {timelineData.map((item, index) => {
-        // Reversed start: first item on RIGHT
-        const isRight = index % 2 === 0;
-
-        return (
+    <section className="bg-black text-white relative">
+      {years.map((year, index) => (
+        <section
+          key={year}
+          className="
+            sticky
+            top-0
+            min-h-screen
+            flex
+            items-center
+            justify-center
+            px-6
+            md:px-20
+            bg-black
+          "
+          style={{ zIndex: index + 1 }}
+        >
+          {/* DARKENING OVERLAY */}
           <div
-            key={index}
-            className="flex items-center h-[75vh]"
-          >
-            <div className="grid grid-cols-12 w-full px-6 md:px-20">
+            className="
+              absolute
+              inset-0
+              bg-black
+              opacity-0
+              transition-opacity
+              duration-300
+              pointer-events-none
+            "
+          />
 
-              {/* YEAR (OPPOSITE SIDE) */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className={`
-                  col-span-12 md:col-span-2
-                  ${isRight ? "md:col-start-2" : "md:col-start-10"}
-                  text-white/40 text-2xl md:text-3xl tracking-widest
-                `}
-              >
-                {item.year}
-              </motion.div>
-
-              {/* MAIN CONTENT */}
-              <motion.div
-                initial={{ opacity: 0, x: isRight ? 60 : -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-120px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className={`
-                  col-span-12 md:col-span-5
-                  ${isRight ? "md:col-start-8" : "md:col-start-2"}
-                  mt-6 md:mt-0
-                `}
-              >
-                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">
-                  {item.title}
-                </h2>
-
-                <h3 className="text-md md:text-xl text-white/60 mb-5">
-                  {item.organization}
-                </h3>
-
-                <p className="text-md md:text-xl text-white/80 leading-relaxed max-w-xl">
-                  {item.body}
-                </p>
-              </motion.div>
-
+          {/* CONTENT */}
+          <div className="relative max-w-6xl w-full flex items-center md:flex-row md:space-x-12 space-y-12 md:space-y-0">
+            
+            {/* YEAR */}
+            <div className="flex items-center justify-center">
+              <h2 className="text-[5rem] md:text-[8rem] font-bold tracking-widest text-white/90">
+                {year}
+              </h2>
             </div>
-          </div>
-        );
-      })}
 
-      {/* FULL-WIDTH HORIZONTAL DIVIDER BEFORE FOOTER */}
-      <div className="w-screen h-px bg-white/20 mt-24" />
+            {/* EXPERIENCE */}
+            <div className="space-y-8">
+              {groupedByYear[year].map((item, i) => (
+                <div
+                  key={i}
+                  className="border-l border-white/20 pl-6"
+                >
+                  <h3 className="text-xl md:text-2xl font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-white/60 mb-2">
+                    {item.organization}
+                  </p>
+                  <p className="text-white/80 leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      ))}
     </section>
   );
 }

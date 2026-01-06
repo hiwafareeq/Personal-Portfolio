@@ -1,67 +1,36 @@
-import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
+import {
+  motion,
+  useScroll,
+  useVelocity,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useAnimationFrame,
+} from "framer-motion";
 
 /* =========================
-   MOTION VARIANTS
+   RIBBON MOTIONS
 ========================= */
 
-const aboutContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2, // tighter stagger
-    },
-  },
-};
-
-const aboutItem = {
-  hidden: { opacity: 0, y: 20 }, // slightly less movement
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const aboutCTA = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
-
-const ribbonMotion = {
+const ribbonLeft = {
   animate: {
     x: ["0%", "-50%"],
     transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 30,
-        ease: "linear",
-      },
+      duration: 40,
+      ease: "linear",
+      repeat: Infinity,
     },
   },
 };
 
-const ribbonMotionReverse = {
+const ribbonRight = {
   animate: {
     x: ["-50%", "0%"],
     transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 35,
-        ease: "linear",
-      },
+      duration: 45,
+      ease: "linear",
+      repeat: Infinity,
     },
   },
 };
@@ -71,6 +40,14 @@ const ribbonMotionReverse = {
 ========================= */
 
 function Ribbon({ position = "top", reverse = false }) {
+  const { scrollYProgress } = useScroll();
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reverse ? ["-100%", "0%"] : ["0%", "-100%"]
+  );
+
   return (
     <div
       className={`
@@ -81,30 +58,33 @@ function Ribbon({ position = "top", reverse = false }) {
       `}
     >
       <motion.div
+        style={{
+          x,
+          WebkitTextStroke: "1px rgba(255,255,255,0.25)",
+        }}
         className="
           flex whitespace-nowrap
-          font-semibold
+          font-serif
           tracking-tight
-          text-[#1A314A]/5
           select-none
-          text-[14vw] sm:text-[15vw] md:text-[15vw] lg:text-[9vw]
+          text-transparent
+          text-[18vw] sm:text-[14vw] lg:text-[9vw]
         "
-        variants={reverse ? ribbonMotionReverse : ribbonMotion}
-        animate="animate"
       >
-        <span className="px-12">
-          SOFTWARE ENGINEERING · FULL STACK · DIGITAL EXPERIENCES ·
+        <span className="px-16">
+          SOFTWARE ENGINEER · WEB DESIGNER · UX/UI ·
         </span>
-        <span className="px-12">
-          SOFTWARE ENGINEERING · FULL STACK · DIGITAL EXPERIENCES ·
+        <span className="px-16">
+          SOFTWARE ENGINEER · WEB DESIGNER · UX/UI ·
         </span>
       </motion.div>
     </div>
   );
 }
 
+
 /* =========================
-   COMPONENT
+   ABOUT PAGE
 ========================= */
 
 function AboutPage() {
@@ -112,91 +92,94 @@ function AboutPage() {
     <section
       id="about"
       className="
-        relative
-        w-full min-h-screen
-        flex items-center justify-center
-        bg-[#ffffff]
-        px-6 sm:px-10 lg:px-16
+        relative min-h-screen
+        bg-black text-white
+        px-8 sm:px-12 lg:px-20
+        flex items-center
         overflow-hidden
       "
     >
-      {/* TOP RIBBON */}
+      {/* BACKGROUND RIBBONS */}
       <Ribbon position="top" />
-
-      {/* BOTTOM RIBBON */}
       <Ribbon position="bottom" reverse />
 
       {/* CONTENT */}
       <motion.div
         className="
           relative z-10
-          max-w-[1100px] mx-auto
-          flex flex-col items-center text-center
+          max-w-7xl w-full
+          flex flex-col md:flex-row
+          items-center
+          justify-between
+          gap-10
+          my-30
         "
-        variants={aboutContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-120px" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
       >
-        {/* MAIN STATEMENT */}
-        <motion.h1
-          variants={aboutItem}
-          className="
-            rubik-h1
-            text-left sm:text-left md:text-center
-            text-[1.1rem] sm:text-[1.15rem] md:text-[1.3rem] lg:text-[1.6rem]
-            text-[#1A314A]
-            leading-tight
-            max-w-[1000px]
-          "
-        >
-          I’m Hiwa — a Software Engineer & Full Stack Developer crafting scalable
-          and immersive digital experiences, merging creativity with engineering
-          precision.
-        </motion.h1>
+        {/* LEFT TEXT */}
+        <div>
+          <motion.h1
+            className="
+              font-serif
+              sm:text-[2rem] md:text-[2rem]
+              leading-snug
+              max-w-3xl
+            "
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            I’m Hiwa — a Software Engineer & Full Stack Developer crafting
+            scalable and immersive digital experiences, merging creativity
+            with engineering precision.
+          </motion.h1>
 
-        {/* SUPPORTING PARAGRAPH */}
-        <motion.p
-          variants={aboutItem}
-          className="
-            rubik-ps
-            text-[#1A314A]
-            text-left md:text-center
-            text-[0.9rem] sm:text-[0.95rem] md:text-[1rem]
-            max-w-[760px]
-            mt-6 sm:mt-8 md:mt-10
-            leading-relaxed
-          "
-        >
-          I specialize in developing Websites and Web Applications, AI-driven
-          products, and interactive web experiences using modern technologies
-          like React, Node.js, Framer Motion, and many more.
-        </motion.p>
+          <motion.p
+            className="
+              mt-6
+              text-white/70
+              text-md sm:text-base
+              leading-relaxed
+              max-w-xl
+            "
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            I specialize in developing websites and web applications,
+            AI-driven products, and interactive digital experiences using
+            modern technologies such as React, Node.js, and advanced UI
+            animation techniques.
+          </motion.p>
+        </div>
 
-        {/* CTA */}
+        {/* RIGHT CTA */}
         <motion.div
-          variants={aboutCTA}
-          className="mt-8 sm:mt-10 md:mt-12"
+          className="mx-auto "
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <a
             href="src/assets/HiwaFareeqResume.pdf"
             download
             className="
               inline-flex items-center gap-3
-              bg-[#1A314A] border-2 border-[#1A314A]
-              text-white
-              px-6 sm:px-8
-              py-3 sm:py-4
-              rounded-full
-              font-semibold
-              text-sm sm:text-base
-              transition-all duration-300 ease-out
-              hover:bg-white hover:text-[#1A314A]
-              hover:border-[#1A314A]
-              hover:-translate-y-0.5 hover:shadow-lg
+              whitespace-nowrap
+              border border-white/40
+              px-8 py-4
+              text-sm tracking-wide
+              hover:bg-white hover:text-black
+              transition
             "
           >
-            <FiDownload className="text-lg" />
+            <FiDownload />
             Download CV
           </a>
         </motion.div>

@@ -1,43 +1,26 @@
-// data/projectsData.js
 export const projectsData = [
   {
-    title: "My Capstone Project",
-    name: "AUIS DORMY",
-    bg: "#08111CFF",
-    points: [
-      "Solving a Problem With Digitalization",
-      "Endorsed By The Department",
-      "Used By The University",
-    ],
+    name: "AUIS Dorm Booker",
+    description:
+      "Created a booking system for AUIS, featuring form submission, validation, confirmation & rejection using React.js with an Express.js backend. The project was later implemented by the university for real use.",
+    tools: ["React", "Node.js", "Express", "PostgreSQL"],
   },
   {
-    title: "Environmental Platform",
-    name: "Eco Iraq",
-    bg: "#0B1A29FF",
-    points: [
-      "Environmental Awareness & Education",
-      "Modern React & Tailwind Stack",
-      "Real Community Impact",
-    ],
+    name: "Environmental Platform",
+    description:
+      "A platform focused on environmental awareness and education, built with a modern React and Tailwind stack.",
+    tools: ["React", "Tailwind", "Framer Motion"],
   },
   {
-    title: "Fitness Club Website",
-    name: "Forward Fitness",
-    bg: "#0F2237FF",
-    points: [
-      "Mobile-First Implementation",
-      "Responsive & Accessible",
-      "Accessibility-first (A11y) Approach",
-    ],
+    name: "Fitness Club Website",
+    description:
+      "A mobile-first website with a strong focus on responsiveness and accessibility.",
+    tools: ["HTML", "CSS", "JavaScript"],
   },
   {
-    title: "Java Messaging Program",
-    name: "Distributed Computing",
-    bg: "#132b45ff",
-    points: [
-      "Terminal Based Application",
-      "Messaging Between Peers",
-      "Adheres to Causal Delivery",
-    ],
-  }
+    name: "Java Messaging Program",
+    description:
+      "A terminal-based distributed messaging system adhering to causal delivery principles.",
+    tools: ["Java", "Distributed Systems"],
+  },
 ];

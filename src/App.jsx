@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
 import ProjectsSlider from "./Pages/ProjectsSection.jsx";
-import ExperiencesSlider from "./Pages/ExperiencesSlider.jsx";
+import ExperiencesGrid from "./Pages/ExperiencesGrid.jsx";
 import Footer from "./Components/Footer.jsx";
 import IntroLoader from "./Components/IntroLoader.jsx";
 import ScrollVerticalTimeline from "./Pages/ScrollVerticalTimeline.jsx";
@@ -89,7 +89,7 @@ function App() {
             </section>
 
             <ProjectsSlider />
-            <ExperiencesSlider />
+            <ExperiencesGrid />
             <ScrollVerticalTimeline />
             <Footer />
           </motion.div>

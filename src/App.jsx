@@ -10,7 +10,7 @@ import ProjectsSlider from "./Pages/ProjectsSection.jsx";
 import ExperiencesGrid from "./Pages/ExperiencesGrid.jsx";
 import Footer from "./Components/Footer.jsx";
 import IntroLoader from "./Components/IntroLoader.jsx";
-import ScrollVerticalTimeline from "./Pages/ScrollVerticalTimeline.jsx";
+import Timeline from "./Pages/Timeline.jsx";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -90,7 +90,7 @@ function App() {
 
             <ProjectsSlider />
             <ExperiencesGrid />
-            <ScrollVerticalTimeline />
+            <Timeline />
             <Footer />
           </motion.div>
         )}

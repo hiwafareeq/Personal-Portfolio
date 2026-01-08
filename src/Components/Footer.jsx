@@ -14,6 +14,8 @@ function Footer() {
 
   return (
     <>
+            {/* DIVIDER */}
+        <div className="mt-12 px-4 sm:mt-16 border-t border-white/30" />
       <footer
         id="contact"
         className="bg-black text-white px-6 sm:px-10 lg:px-20 py-12 sm:py-16"
@@ -74,9 +76,6 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        {/* DIVIDER */}
-        <div className="mt-12 sm:mt-16 border-t border-white/30" />
 
         {/* BOTTOM */}
         <div className="text-center mt-6 text-white/70 text-sm">

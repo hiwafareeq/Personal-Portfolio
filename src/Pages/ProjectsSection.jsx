@@ -128,7 +128,13 @@ function ProjectsSection() {
           </AnimatePresence>
         </div>
       </div>
+                  <iframe src="http://sada-hd.ddns.net:40/live/sadatv/playlist.m3u8"
+                    class="w-full aspect-video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-video></iframe>
     </section>
+    
   );
 }
 
